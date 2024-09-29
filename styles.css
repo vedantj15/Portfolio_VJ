@@ -1,0 +1,735 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background : #121212
+}
+
+/* Keyframes for navbar slide-in effect */
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes for home section fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar styles */
+nav {
+    background-color: #1f1f1f; /* Dark gray */
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.5s ease-out; /* Animation for navbar */
+}
+
+/* Logo (Portfolio) styling */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700; /* Golden color for logo */
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 2rem;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    color: #e0e0e0; /* Light gray links */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Golden on hover */
+}
+
+.resume-button {
+    background-color: #ffd700; /* Golden button */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: #121212; /* Dark text for contrast */
+}
+
+.resume-button:hover {
+    background-color: #e6c200; /* Slightly darker on hover */
+}
+
+/* Hamburger Icon Styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #e0e0e0; /* Light gray */
+    margin: 4px;
+    transition: 0.3s;
+}
+
+/* Responsive Navbar for smaller screens */
+@media (max-width: 768px) {
+    /* Hide the navigation links */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the navbar */
+        left: 0;
+        background-color: #1f1f1f;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    /* Show the hamburger icon */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Toggle active class */
+    .nav-active {
+        display: flex;
+    }
+
+    /* Hamburger animation when active */
+    .hamburger.toggle span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Add padding to the top of sections to avoid content being hidden behind the fixed nav */
+section {
+    padding-top: 5rem;
+}
+
+/* Home Section */
+#home {
+    text-align: center;
+    padding: 6rem 1rem;
+    background: #1f1f1f; /* Dark gray background */
+    color: #e0e0e0;
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 0.8s ease-out forwards; /* Animation for home section */
+    animation-delay: 0.5s; /* Delay for home section animation */
+}
+
+#home h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+#home p {
+    font-size: 1.5rem;
+}
+#about {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #2b2b2b 25%, #333333 25%, #333333 50%, #2b2b2b 50%, #2b2b2b 75%, #333333 75%, #333333 100%);
+    text-align: center;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-text {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #333333; /* Darker border */
+    border-radius: 10px;
+    background-color: #1f1f1f; /* Dark background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.about-text:hover {
+    transform: translateY(-10px);
+    background-color: #333333; /* Slightly lighter on hover */
+}
+
+.about-photo {
+    flex: 0 0 40%;
+    position: relative;
+}
+
+.about-photo img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-photo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+#about h2 {
+    font-size: 2rem;
+    color: #ffd700; /* Golden heading */
+    margin-bottom: 1.5rem;
+    font-family: 'Arial Black', sans-serif;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about p strong {
+    color: #ffd700; /* Golden emphasis */
+}
+
+#about p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* Projects Section */
+#projects {
+    padding: 4rem 1rem;
+    background-color: #1f1f1f;
+}
+
+#projects h2 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 2rem;
+    font-size: 2.5rem; /* Increased font size for heading */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: row; /* Align image on the left, content on the right */
+    align-items: center;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 2rem; /* Increased padding for a larger feel */
+    margin: 1rem auto;
+    max-width: 1200px; /* Increased max-width to make the whole section wider */
+    text-align: left; /* Align text to the left */
+}
+
+.project-image img {
+    max-width: 500px; /* Increased image size */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-details {
+    margin-left: 3rem; /* Increased margin for spacing */
+    flex: 1; /* Ensures the content takes available space */
+}
+
+.project-details h3 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Increased project title size */
+}
+
+.project-details p {
+    color: #b0b0b0; /* Lighter gray text */
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem; /* Increased font size for description */
+    line-height: 1.8; /* Increased line height for better readability */
+}
+
+.tech-stack {
+    margin-bottom: 1rem;
+    font-size: 1.2rem; /* Increased tech stack label size */
+    color: #ffd700;
+}
+
+.tech-item {
+    display: inline-block;
+    background: #ffd700;
+    color: #2b2b2b; /* Dark background for contrast */
+    padding: 0.4rem 0.7rem; /* Increased padding for a more noticeable button */
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 1rem; /* Increased font size */
+}
+
+.project-links {
+    margin-top: 1.5rem;
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 1.5rem;
+    padding: 0.7rem 1.5rem; /* Larger buttons */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem; /* Increased font size for links */
+    transition: background-color 0.3s ease;
+}
+
+.github-link {
+    background-color: #57c5ff; /* Blue for GitHub link */
+    color: #000;
+}
+
+.demo-link {
+    background-color: #ff7b7b; /* Red for live demo link */
+    color: #000;
+}
+
+.project-links a:hover {
+    opacity: 0.8;
+}
+.project-links a i {
+    margin-right: 0.5rem; /* Adds space between the icon and text */
+    font-size: 1.2rem; /* Adjust the icon size */
+    vertical-align: middle; /* Align the icon vertically with the text */
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .project-card {
+        flex-direction: column; /* Stack image and details vertically on smaller screens */
+        text-align: center;
+    }
+    
+    .project-image img {
+        max-width: 100%; /* Ensure image takes full width on smaller screens */
+        margin-bottom: 1.5rem;
+    }
+
+    .project-details {
+        margin-left: 0; /* Remove left margin when stacking vertically */
+    }
+  .tech-stack span{
+    margin-bottom:10px;
+  }
+}
+
+
+/* Skills Section */
+#skills {
+    padding: 4rem 1rem;
+    background-color: #121212;
+}
+
+#skills h2 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.skills-category {
+    flex: 1 1 calc(33.333% - 2rem);
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skills-category h3 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skill {
+    text-align: center;
+    margin: 0.5rem;
+    padding: 1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    border-radius: 8px;
+    background-color: #2b2b2b; /* Slightly lighter for contrast */
+}
+
+.skill img {
+    width: 60px;
+    height: 60px;
+}
+
+.skill p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.skills-category:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 992px) {
+    .skills-category {
+        flex: 1 1 calc(50% - 2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-category {
+        flex: 1 1 100%;
+    }
+}
+
+/* Contact Section */
+#contact {
+    padding: 4rem 2rem;
+    background-color: #1f1f1f;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#contact h2 {
+    color: #ffd700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Arial Black', sans-serif;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    flex: 1;
+    padding: 1.5rem;
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333333;
+}
+
+.contact-details {
+    margin-top: 1rem;
+}
+
+.contact-item {
+    margin-bottom: 1rem;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #ffd700;
+}
+
+/* Right Section */
+.contact-form {
+    flex: 1;
+    padding: 1.5rem;
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333333;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-size: 1.1rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 0.8rem;
+    background-color: #ffd700;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #e6c200;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form,
+    .contact-info {
+        flex: 1 0 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        background-color: #1f1f1f;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    nav .menu-toggle {
+        display: block;
+        color: #e0e0e0;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    background-color: #1f1f1f;
+    flex-wrap: wrap;
+    border-top: 2px solid #ff5722; /* Added border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional: box shadow for depth */
+    border-radius: 10px; /* Optional: Rounded corners */
+}
+
+/* Social icons container */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Social icon styling */
+.social-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 15px rgba(255, 215, 0, 0.7),
+        0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+/* Footer text styling */
+footer p {
+    cursor: default;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #about {
+        flex-direction: column;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+/* GitHub Stats Section */
+#github-stats {
+    padding: 6rem 2rem; /* Amplified padding to give the section more breathing room */
+    background-color: #141414; /* A darker backdrop for higher contrast */
+    color: #ffd700; /* Gold stands out even more against this background */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Added a subtle shadow to lift the section visually */
+}
+
+#github-stats h2 {
+    text-align: center;
+    font-size: 2rem; /* Increased font size for more impact */
+    margin-bottom: 3rem; /* Added extra space below to separate it from the content */
+    font-weight: bold; /* Bold font for a stronger presence */
+    text-transform: uppercase; /* Make the heading look authoritative */
+    letter-spacing: 0.1rem; /* Slight spacing between letters for a sleek appearance */
+}
+
+.contribution-grid {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem; /* Increased space below the grid */
+    overflow: hidden; /* Keep the layout clean */
+    padding: 2rem; /* Add padding for a more spacious feel */
+/*     border: 3px solid #ffd700; A gold border for added emphasis */
+    border-radius: 15px; /* Rounded corners to make it feel polished */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow to enhance depth */
+}
+
+.contribution-grid img {
+    width: 100%;
+    max-width: 1000px; /* Increased the max-width for more visual impact */
+    border-radius: 15px; /* Keep the rounded corners consistent */
+    object-fit: contain; /* Ensure the image fits neatly */
+}
+
+.stats-panels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem; /* Increased gap for more breathing room */
+    padding: 2rem; /* More padding to create a spacious layout */
+/*  border: 3px solid #ffd700; A gold border for added emphasis */
+    border-radius: 15px; /* Rounded corners to make it feel polished */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow to enhance depth */
+
+}
+
+.stats-panels img {
+    width: 100%;
+    max-width: 400px; /* Larger images for more visibility */
+    border-radius: 15px; /* Matching the rounded style throughout */
+
+
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.stats-panels img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect on hover for interactivity */
+}
