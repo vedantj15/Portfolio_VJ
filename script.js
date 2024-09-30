@@ -1,3 +1,19 @@
+// Resume button functionality
+document.getElementById('resume-link').addEventListener('click', function(event) {
+    // event.preventDefault(); // Prevent the default action
+
+    // Open the resume in a new tab
+    window.open(this.href, '_blank');
+
+    // Download the resume
+    const link = document.createElement('a');
+    link.href = 'https://drive.google.com/uc?export=download&id=1am4tgU8kRIa139Vs8SAN2HRxEtuV1YgN';
+    link.download = 'Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
 // Hamburger Menu Toggle with ARIA attributes
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
